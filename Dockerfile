@@ -1,7 +1,7 @@
 FROM python:3.6-slim
 WORKDIR /app
 RUN apt-get update && apt-get install -y sqlite3 && apt-get clean
-COPY requirements.txt .
+COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY backend/ .
 EXPOSE 5000
