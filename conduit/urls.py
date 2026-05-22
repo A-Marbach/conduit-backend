@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
+from conduit.metrics_view import metrics
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include('django_prometheus.urls')),
-
+    url(r'^metrics$', metrics),
     url(r'^api/', include('conduit.apps.articles.urls', namespace='articles')),
     url(r'^api/', include('conduit.apps.authentication.urls', namespace='authentication')),
     url(r'^api/', include('conduit.apps.profiles.urls', namespace='profiles')),
